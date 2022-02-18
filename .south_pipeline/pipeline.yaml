@@ -5,6 +5,9 @@ metadata:
   name: secure-kube-pipeline
 spec:
   params:
+    - name: username
+      description: The name used in the application
+      default: "Juan Carlos"
     - name: repository
       description: the git repo containing source code. If empty, the repository url will be found from toolchain
       default: ""
@@ -299,6 +302,8 @@ spec:
         name: iks-deploy-to-kubernetes
       runAfter: [vulnerability-advisor]
       params:
+        - name: username
+          value: $(params.username)
         - name: shuttle-properties-file
           value: "build.properties"
         - name: cluster-region
