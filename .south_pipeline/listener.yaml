@@ -163,7 +163,7 @@ metadata:
   name: webhook-binding
 spec:
   params:
-    - name: name
+    - name: provide-name
       value: $(event.name)
 ---
 apiVersion: tekton.dev/v1beta1
