@@ -157,6 +157,15 @@ spec:
       template:
         name: trigger-template-secure-kube
 ---
+- apiVersion: tekton.dev/v1beta1
+  kind: TriggerBinding
+  metadata:
+    name: webhook-binding
+  spec:
+    params:
+      - name: name
+        value: $(event.name)
+---
 apiVersion: tekton.dev/v1beta1
 kind: TriggerBinding
 metadata:
